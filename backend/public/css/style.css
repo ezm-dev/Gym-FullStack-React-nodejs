@@ -1,0 +1,766 @@
+body {
+    margin: 0 ;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+ 
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+ /* justify-content: space-around; */
+    align-items: center;
+    background-color:black;
+    padding: 10px 20px;
+    color: #FDF507;
+}
+header h1 a{
+    text-decoration: none;
+    color: #FDF507;
+
+}
+
+/* to remove the default h1 margin from the header */
+header h1 {
+    margin: 0;
+}
+
+/* The navigation links*/
+nav {
+    display: flex;
+}
+
+/* Style for navigation links */
+/* header > nav > a */
+nav a {
+    color: #FDF507;
+    text-decoration: none;
+    /* font-size: 1.25em; */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 5px;      /*space from the edge*/
+}
+
+nav  a:hover {
+    background-color: rgba(107, 106, 106, 0.79);
+    border-radius: 5px;
+}
+
+/* Hide the checkbox by default */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Hide the Burger Menu Icon  */
+.burger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Style for burger menu icon */
+.burger-menu span {
+    color: white;
+    
+}
+
+
+/*-------------------End Main Menu-------- */
+
+/* Footer */
+footer {
+    background-color: #8b8c89;
+    color: #e7ecef;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+footer a {
+    color: white;
+}
+aside a{
+    text-decoration:none;
+    /* font-weight: bold; */
+    padding: 5px;
+    }
+  
+aside{
+    margin: 5px;
+}   
+/*-------------------Hero Section--------- */
+/* Hero Section */
+
+#hero {
+    display: flex
+}
+
+#hero img {
+    width: 100%;
+}
+
+
+/* --------------------Mian content------------------------------------------- */
+h2{
+   text-align: center;
+}
+
+
+main {
+    padding: 0px 20px;
+    min-height: 100vh;   
+    
+}
+
+
+/* -----Content Card------- */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Each card */
+.card{
+    text-align: center; 
+    background-color: #e7ecef;
+    border: 1px solid #274c77;
+    padding: 10px;
+    margin: 10px;
+    /* width: 250px; */
+    /* width:25%; */
+
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+
+.card>img {
+    width: 100%;
+    /* height: auto; */
+}
+
+.card2{
+    text-align: center; 
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    /* width: 250px; */
+    /* width:25%; */
+    text-align: center;
+    /* transition: transform 0.3s ease; */
+}
+
+
+.card2>img {
+    width: 100%;
+    /* height: auto; */
+}
+
+
+
+
+
+.card:hover {
+    transform: scale(1.05);
+
+}
+
+/* ---------------------------Card end--------------------- */
+
+/* ---------------------------Sessions Calendar-------------- */
+.title-border{
+    
+    font-weight: bold;
+    padding: 10px;
+    border: 3px #e7ecef solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+   
+}
+.sessions_list{
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+ 
+  
+   
+}
+.sessions_row{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between ;
+    align-items: center;
+ 
+    margin-left: 10px;
+    /* padding-left: 10px; */
+ 
+
+}
+/* ----------------------------------btn----------------------------------------------- */
+.btn{ 
+    background: black;
+    color: yellow;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+
+.btn:hover {
+    background-color: rgba(56, 53, 53, 0.79); 
+   
+}
+/* ---------Status------ */
+
+.status{
+   display: flex;
+   flex-direction: column;
+   /* justify-content: center; */
+   flex-wrap: wrap;
+   align-items: center;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+
+ 
+
+}
+
+/* -----------------CRUD-------------------------------- */
+.main-crud{
+
+    max-width: 400px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+   
+    /* text-align: center; */
+
+
+}
+
+form-crud{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+input{
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+}
+select,button{
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+ 
+}
+
+
+.btns-section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:10px
+
+
+}
+
+.btns-section input, a.btn-clear {
+    /* flex: 1; */
+    margin: 5px;
+    font-weight: bold;
+    background-color: black;
+    color: yellow;
+    font-weight: bold;
+    cursor: pointer;
+    /* max-width:48% ; */
+ 
+
+   
+ 
+   
+    
+}
+
+.btn-clear{
+    box-sizing: border-box;
+    padding: 10px 8px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     text-decoration: none;
+     text-align: center;
+     /* color: black; */
+     /* font-size: smaller; */
+     font-size:smaller;
+     width: 90%
+     
+
+   
+ }
+
+ /* -----------------------data list------------ */
+
+.list-row{
+    display: grid;
+    /* grid-template-columns: repeat(4,1fr); */
+    grid-template-columns: 100px 120px 80px 80px;
+    align-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+/* List using flex */
+/* .list-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+
+} */
+.heading{
+    font-weight: bold;
+    margin-top: 20px;
+    
+
+ }
+
+.list-row > span{
+   /* Searched */
+   /* Prevents text from wrapping*/
+   white-space: wrap;  
+     
+   /* overflow: hidden;      Hides overflow content */
+   text-overflow: ellipsis; /* Adds "..." for overflowed text */
+
+
+
+
+}
+/* ----------END CRUD------------------------ */
+
+/* -----------trainer-------------- */
+.trainer{
+    display: grid;
+    /* grid-template-columns: repeat(4,1fr); */
+    grid-template-columns: 2fr 2fr 1fr ;
+    align-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+/* -------------- */
+
+/* ------------------POSTS-------------------- */
+.main-post{
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    
+   
+  
+
+}
+.form-posts {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.title {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.content {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 150px;
+    
+}
+/* ------------------------------btns posts---------------------------- */
+.btns-section-posts {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    
+}
+
+.post {
+    background: black;
+    color: yellow;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 48%;
+    font-weight: bold;
+   
+}
+
+
+.clear{
+    background-color: black;
+    color: yellow;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:smaller;
+    width: 48%;
+    text-align: center;
+      padding: 10px 8px;
+      box-sizing: border-box;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px;
+   
+ }
+
+
+
+
+.post:hover, .clear:hover {
+    background: rgba(56, 53, 53, 0.79); 
+  
+}
+
+/*---------------- post card-------------- */
+.posts_list {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding:10px;
+    margin-top: 60px;
+}
+
+.post-card{
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px rgb(190, 188, 188) solid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    word-wrap: break-word;    /* Ensures long words break into the next line */
+    overflow-wrap: break-word; /* Additional support for breaking long words */
+    white-space: normal;       /* Ensures text wraps within the box */
+    max-width: 100%;   
+
+
+}
+.post-header {
+    font-weight: bold;
+}
+.delete {
+    text-decoration: none;
+    border: 1px gray solid;
+    padding: 3px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: red;
+
+  
+    
+}
+
+/* ------login----------------- */
+
+.login  form{
+   
+    /* max-width: 400px; */
+    /* max-width: 400px; */
+       width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   align-items: center;
+ 
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    align-self: flex-start;
+}
+
+
+/* ----------------Sessions details & confirmation---------------- */
+
+.session{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+
+.session p{
+   font-weight: bold;
+}
+.session  select {
+    width: 90%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.details{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+    /* flex-direction: row;
+    justify-content: space-between; */
+}
+
+
+
+
+/* Member bookings */
+
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bookings-row {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* .bookings-header {
+    background: black;
+    color: yellow;
+    font-weight: bold;
+    display:none
+} */
+
+.item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* test */
+.link-button {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border: black 1px solid;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+/* input, select {
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 20px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------- */
+
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* 1.Display the burger menu icon when the screen width is less than 768px */
+    .burger-menu {
+        display: block;
+    }
+
+    /*  2. Hide the entire navigation menu by default */
+    nav{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: black; 
+    }
+
+      /* 3.Show the menu when the checkbox is checked */
+      input[type="checkbox"]:checked ~ nav {
+        display: flex;
+    }
+
+
+    /* 4.Style the navigation links in mobile view */
+    nav a {
+        text-align: center;
+        padding: 15px;
+        /* border-bottom: 1px solid #444; */
+    }
+    /* nav a:last-child {
+        border-bottom: none;
+    } */
+
+
+    footer{
+        flex-direction: column;
+        gap: 8px;
+       text-align: left;
+      
+
+    }
+    .main-post{
+        flex-direction: column;
+       
+    }
+    .btns-section-posts{
+        flex-direction: column;
+        align-items: center;
+    }
+    .post,.clear{
+     width:100%
+        
+    }
+
+
+
+    
+   
+   
+}
+@media (max-width: 600px) {
+    .sessions_list{
+        width: 90%;
+     
+    }
+/* 
+    .sessions_row {
+        flex-direction: column;
+        align-items: flex-start;
+    } */
+
+    .btns-section{
+        display: flex;
+       flex-direction: column;
+       flex-wrap: nowrap;
+       /* width:90% */
+        /* justify-content: space-between;
+     */
+    
+    }
+    /* .main-crud{
+        max-width: 100%;
+    } */
+    .list-row{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        font-weight: bold;
+    }
+
+    
+    .heading{
+        display: none;
+    }
+    
+/* Member View bookings */
+    .bookings-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 100%;
+        text-align: left;
+        padding: 8px;
+    }
+/* .booking-delete-btn {
+    width: 100%;
+    text-align: left;
+} */
+
+
+
+
+
+
+
+
+}
