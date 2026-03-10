@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sessions [
+    <!ELEMENT sessions (session*)>
+    <!ATTLIST sessions trainer CDATA "">
+    <!ATTLIST sessions export-date CDATA "0000-00-00">
+    <!ELEMENT session (activity, location, date, time)>
+    <!ATTLIST session Id CDATA "">
+    <!ELEMENT activity (#PCDATA)>
+    <!ELEMENT location (#PCDATA)>
+    <!ELEMENT date (#PCDATA)>
+    <!ELEMENT time (#PCDATA)>
+]>
+
+<sessions trainer="Layla" export-date="2025-05-10" >
+    
+  <session Id= "10">
+    <activity>"HIIT"</activity>
+    <location>"Ashgrove"</location>
+    <date>2025-05-10</date>
+    <time>14:00</time>
+  </session>
+
+</sessions>

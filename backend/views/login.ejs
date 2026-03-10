@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Login</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+
+        <main class="login">
+            <h2> Login</h2>
+
+
+            <form action="/authenticate" method="post">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+
+                <!-- <a href="/" class="link-btn">Back</a> -->
+                <label for=""></label>
+                <input type="submit" value="Login" class="btn login-btn">
+
+
+            </form>
+
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

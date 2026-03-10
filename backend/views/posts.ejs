@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Blog</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+
+    <%- include("partials/header.ejs") %>
+        <% if (authenticatedUser){%>
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <% } %>
+                    <h2>Micro Blog</h2>
+                    <main class="main-post">
+                        <!-- post if authenticated user -->
+                        <% if(authenticatedUser){%>
+                            <form action="/posts/create" method="post" class="form-posts">
+                                <input type="text" name="title" class="title" placeholder="Title">
+                                <textarea id="content" name="content" class="content"
+                                    placeholder="Content..."></textarea>
+
+                                <section class="btns-section-posts ">
+                                    <a href="/posts" class="clear">Clear</a>
+                                    <input type="submit" class="post" value="Post">
+                                </section>
+                            </form>
+                            <% } %>
+
+                                <!-- posts -->
+                                <section class="posts_list">
+                                    <% for(let postUser of posts) {%>
+                                        <article class="post-card">
+                                            <% let date=new Date( postUser.post.date) %>
+                                                <%let formattedDate=date.toLocaleDateString("en-CA") %>
+                                                    <span class="post-header">
+                                                        <%= postUser.user.firstName %>
+                                                            <%= postUser.user.lastName %> - <%= formattedDate %>
+                                                    </span>
+                                                    <p><strong>
+                                                            <%= postUser.post.title %>
+                                                        </strong></p>
+                                                    <p>
+                                                        <%= postUser.post.content %>
+                                                    </p>
+
+                                                    <% if(authenticatedUser) { %>
+                                                        <% if(postUser.user.id==authenticatedUser.id
+                                                            ||authenticatedUser.role=="admin" ) {%>
+                                                            <a href="/posts/<%= postUser.post.id  %>"
+                                                                class="delete">X</a>
+
+
+                                                            <% } %>
+                                                                <% } %>
+                                        </article>
+                                        <% } %>
+
+                                </section>
+
+                    </main>
+                    <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

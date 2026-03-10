@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Session Details</title>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+
+        <% if (authenticatedUser){%>
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <% } %>
+                    <!-- nav -->
+                    <main>
+                        <h2>Session Booking</h2>
+
+                        <section class="session">
+                            <article class="card2">
+                                <img src="/img/<%= activity %>.jpg" alt="Gym activity photo">
+                                <p>Activity: <%= activity %>
+                                </p>
+                                <p>Date: <%= selectedDate %>
+                                </p>
+
+                                <form action="/bookings" method="post">
+                                    <!-- <input type="hidden" name="date" value="<%= selectedDate  %>">
+                                    <input type="hidden" name="activity" value="<%= activity %>"> -->
+                                    <label for="selected-location">Location</label>
+                                    <select name="sessionDetails" id="selected-location">
+                                        <% for(result of sessions) {%>
+                                            <option value=" <%=  result.session.id %>">
+                                                <%= result.location.name %> - <%= result.session.startTime %> By
+                                                        <%= result.user.firstName %>
+
+                                            </option>
+                                            <%} %>
+                                    </select>
+                                    <input type="submit" value="Book" class="btn">
+                                </form>
+                            </article>
+
+                        </section>
+
+                    </main>
+                    <%- include("partials/footer.ejs") %>
+</body>
+
+</html>

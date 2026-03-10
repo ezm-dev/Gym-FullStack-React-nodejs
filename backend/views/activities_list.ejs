@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Activities</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main>
+            <!--Hero Section  -->
+            <section id="hero">
+                <img src="img/header_900_300_q90.png" alt="Hero image of the gym">
+            </section>
+
+            <!-- 
+        <form action="/act" method="get" class="search" >
+            <input type="text" name="search_term" id="search-term" placeholder="Search! Yoga, Zumba ....">
+            <input type="submit" value="Search">
+            <a href="/act/sessions" >Bookings</a>
+        </form> -->
+            <section class="card-list">
+                <% for(let activity of activities ){ %>
+
+                    <article class="card">
+                        <img src="/img/<%= activity.name %>.jpg" alt="Gym locations">
+                        <h2>
+                            <%= activity.name %>
+                        </h2>
+
+                        <% if (activity.description){ %>
+                            <span>
+                                <%= activity.description %>
+                            </span>
+                            <% } else{%>
+                                <span> - </span>
+                                <% } %>
+                                    <!-- <p><a href="#">more>>></a> </p>  -->
+                                    <!-- <a href="/act/<%= activity.id%>" >More</a> -->
+                    </article>
+                    <% } %>
+            </section>
+            <%- include("partials/footer.ejs") %>
+        </main>
+
+</body>
+
+</html>

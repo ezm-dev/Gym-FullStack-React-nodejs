@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Locations Management</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main class="main-crud">
+            <!-- Conditional navigation -->
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <h2>Locations CRUD</h2>
+
+                <!-- form Section -->
+                <form action="/location_mng/<%= selectedLocation.id%>" method="post" class="form-crud">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" value="<%= selectedLocation.name  %>">
+
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" value="<%= selectedLocation.address  %>">
+
+
+
+                    <!-- make update and create button conditional -->
+
+                    <section class="btns-section">
+                        <a href="/location_mng" class="btn-clear">Clear</a>
+                        <% if(selectedLocation.id==null) {%>
+
+                            <input type="submit" name="action" value="create">
+
+                            <% } else{%>
+                                <input type="submit" name="action" value="update">
+                                <input type="submit" name="action" value="delete">
+                                <% } %>
+
+
+                                    <!-- Move delete button with update -->
+                    </section>
+
+                </form>
+
+
+                <section class="list">
+
+                    <article class="list-row heading">
+                        <span class="heading">Name </span>
+                        <span class="heading"> Address</span>
+                        <span class="heading"></span>
+                    </article>
+
+                    <% for (const location of locations){ %>
+
+                        <article class="list-row">
+                            <span>
+                                <%= location.name %>
+                            </span>
+                            <span>
+                                <%= location.address%>
+                            </span>
+                            <a href="/location_mng/<%= location.id %>" class="btn-clear">Edit</a>
+                        </article>
+                        <% } %>
+
+
+                </section>
+
+
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

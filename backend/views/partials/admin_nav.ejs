@@ -1,0 +1,23 @@
+<aside>
+  <% if( userRole=="admin" ){ %>
+    <a href="/users"> Users </a> ||
+    <a href="/session_mng"> Sessions</a> ||
+    <a href="/booking_mng">Bookings</a> ||
+    <a href="/activity_mng">Activities</a> ||
+    <a href="/location_mng">Locations</a> ||
+    <a href="/posts">Posts</a>
+    <%}%>
+
+      <% if( userRole=="member" ){ %>
+        <a href="/sessions"> Book a session</a> ||
+        <a href="/bookings">View my bookings</a> ||
+        <a href="/posts">Posts</a>
+        <%}%>
+
+          <% if( userRole=="trainer" ){ %>
+            <a href="/trainer">View my sessions</a>||
+            <a href="/posts">Posts</a>
+          <%}%>
+           ||<a href="authenticate/logout">Logout</a>
+
+</aside>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Bookings Management</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main class="main-crud">
+            <!-- Conditional navigation -->
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <h2>Bookings CRUD</h2>
+
+                <!-- form Section -->
+                <form action="/booking_mng" method="get" class="form-crud">
+                    <label for="email">Email</label>
+                    <input type="text" name="selectedEmail" id="email" placeholder="Enter user email.....">
+
+                    <section class="btns-section">
+                        <a href="/booking_mng" class="btn-clear">Clear</a>
+                        <input type="submit" name="find" value="Search by email">
+                    </section>
+                </form>
+
+                <section class="list">
+                    <h2>Bookings</h2>
+
+
+                    <% if(bookingDetails){ %>
+                        <article class="list-row heading">
+                            <span class="heading">User </span>
+                            <span class="heading"> Time</span>
+                            <span class="heading">Activity</span>
+                        </article>
+
+                        <% for(const result of bookingDetails){ %>
+
+                            <article class="list-row ">
+                                <span>
+                                    <%= result.user.email %>
+                                </span>
+                               
+
+                                <% let date=new Date(result.session.date)%>
+                                    <% let formattedDate=date.toLocaleDateString("en-CA") %>
+                                        <span>
+                                            <%= formattedDate %> - <%= result.session.startTime %>
+                                        </span>
+                                        <span>  
+                                            <%= result.activity.name%>-<%= result.location.name%>
+                                        </span>
+
+                                        <a href="/booking_mng/<%= result.booking.id %>" class="btn-clear">Delete</a>
+                            </article>
+                            <% } %>
+
+                                <% } else{ %>
+                                    <span> No Bookings Available for this user</span>
+
+                                    <% } %>
+
+
+                </section>
+
+
+
+
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

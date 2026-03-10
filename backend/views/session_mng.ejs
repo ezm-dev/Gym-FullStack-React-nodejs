@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Session Management</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main class="main-crud">
+            <!-- Conditional navigation -->
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <h2>Sessions CRUD</h2>
+
+                <!-- form Section -->
+                <form action="/session_mng/<%= selectedSession.session.id%>" method="post" class="form-crud">
+                    <label for="activity">Activity</label>
+                    <select name="formActivity" id="activity">
+                        <% for(const activity of activities){ %>
+                            <option value="<%= activity.id%>" <%=selectedSession.activity.id==activity.id?"selected":""
+                                %>><%= activity.name %>
+                            </option>
+
+                            <% } %>
+                    </select>
+
+
+                    <label for="location">Location</label>
+                    <select name="formLocation" id="location">
+                        <% for(const location of locations){ %>
+                            <option value="<%= location.id%>" <%=selectedSession.location.id==location.id?"selected":""
+                                %>><%= location.name %>
+                            </option>
+
+                            <% } %>
+                    </select>
+
+                    <label for="trainer">Trainer</label>
+                    <select name="formTrainer" id="trainer">
+                        <% for(const trainer of trainers){ %>
+                            <option value="<%= trainer.id %>" <%=selectedSession.user.id==trainer.id?"selected":"" %>>
+                                <%= trainer.firstName %>
+                                    <%= trainer.lastName %>
+                            </option>
+                            <% } %>
+                    </select>
+
+                    <label for="session-date">Date:</label>
+                    <% const  date=new Date(selectedSession.session.date) %>
+                        <% const formattedDate=isNaN(date.getTime()) ?"": date.toLocaleDateString("en-CA")%>
+                            <input type="text" name="date" id="session-date" placeholder="YYYY-MM-DD"
+                                value="<%= formattedDate %>">
+
+                            <label for="start-time">Start time:</label>
+                            <input type="text" name="startTime" id="start-time" placeholder="hh:mm"
+                                value="<%= selectedSession.session.startTime %>">
+
+                            <label for="Date">Duration (mins):</label>
+                            <input type="text" name="duration" placeholder="30(min), 45, 60, 90 (max)"
+                                value="<%= selectedSession.session.duration %>">
+
+                            <section class="btns-section">
+                                <a href="/session_mng" class="btn-clear">Clear</a>
+                                <% if(selectedSession.session.id==null) {%>
+
+                                    <input type="submit" name="action" value="create">
+
+                                    <% } else{%>
+                                        <input type="submit" name="action" value="update">
+                                        <input type="submit" name="action" value="delete">
+                                        <% } %>
+
+                            </section>
+
+                </form>
+
+
+                <form action="/session_mng" method="get">
+                    <label for="">Filter by Date</label>
+
+                    <label for="date-from">From</label>
+                    <input type="text" name="startDate" id="date-from" placeholder="YYYY-MM-DD">
+
+                    <label for="date-to">To</label>
+                    <input type="text" name="endDate" id="date-to" placeholder="YYYY-MM-DD">
+
+                    <section class="btns-section">
+                        <input type="submit" name="find" value="Go">
+                    </section>
+                </form>
+
+
+
+                <form action="/session_mng" method="get">
+                    <label for="trainer2">Filter by Trainer</label>
+                    <select name="byTrainer" id="trainer2">
+                        <% for(const trainer of trainers){ %>
+                            <% if(selectedTrainerId) {%>
+
+                                <option value="<%=trainer.id %>" <%=selectedTrainerId==trainer.id?"selected":"" %>><%=
+                                        trainer.firstName %>
+                                        <%= trainer.lastName %>
+                                </option>
+
+                                <% }else{ %>
+                                    <option value="<%=trainer.id %>">
+                                        <%= trainer.firstName %>
+                                            <%= trainer.lastName %>
+                                    </option>
+                                    <% } %>
+                                        <% } %>
+                    </select>
+                    <section class="btns-section">
+                        <input type="submit" name="filter" value="Go">
+                    </section>
+                </form>
+
+
+                <section class="list">
+
+                    <article class="list-row heading">
+                        <span class="heading">Activity-Location</span>
+                        <span class="heading"> Time</span>
+                        <span class="heading"> Trainer</span>
+                        <!-- <span class="heading"> Duration</span> -->
+                        <span class="heading"> </span>
+                    </article>
+
+                    <% for (const result of sessions){ %>
+
+                        <article class="list-row">
+                            <span>
+                                <%= result.activity.name %>-<%= result.location.name%>
+                            </span>
+
+                            <% let date=new Date(result.session.date ) %>
+                            <%  let formattedDate=date.toLocaleDateString("en-CA") %>
+
+                                <span>
+                                    <%= formattedDate %>
+                                        <%= result.session.startTime%>(<%= result.session.duration%>m)
+                                </span>
+                                <span>
+                                    <%= result.user.firstName%>
+                                        <%= result.user.lastName%>
+                                </span>
+
+
+
+                                <a href="/session_mng/<%= result.session.id %>" class="btn-clear">Edit</a>
+                        </article>
+                        <% } %>
+
+
+                </section>
+
+
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

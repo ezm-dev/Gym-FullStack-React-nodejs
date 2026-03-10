@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Gym - Trainer Sessions</title>
+  <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+  <%- include("partials/header.ejs") %>
+    <main class="main-crud">
+      <!-- Conditional navigation -->
+      <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+        <h2>My Sessions</h2>
+
+        <!-- form Section -->
+        <form action="/trainer" method="post" class="form-crud">
+
+          <label for="Activity">Activity:</label>
+          <select name="activity" id="activity">
+            <% for(const activity of activities){ %>
+              <option value="<%= activity.id  %>">
+                <%= activity.name %>
+              </option>
+              <% } %>
+          </select>
+
+          <label for="Locations">Location:</label>
+          <select name="location" id="location">
+            <% for(const location of locations){ %>
+              <option value="<%= location.id  %>">
+                <%= location.name %>
+              </option>
+              <% } %>
+          </select>
+
+          <label for="session-date">Date:</label>
+          <input type="text" name="date" id="session-date" placeholder="YYYY-MM-DD">
+
+          <label for="start-time">Start time:</label>
+          <input type="text" name="startTime" id="start-time" placeholder="hh:mm">
+
+          <label for="Date">Duration (mins):</label>
+          <input type="text" name="duration" placeholder="30(min), 45, 60, 90(max)">
+
+
+          <section class="btns-section">
+            <a href="/trainer" class="btn-clear">Clear</a>
+
+            <input type="submit" name="action" value="create">
+
+            <!-- Move delete button with update -->
+          </section>
+
+        </form>
+
+
+        <section class="list">
+          <article class="list-row trainer heading">
+            <span class="heading">Activity-Location</span>
+            <span class="heading"> Date-Time</span>
+            <span class="heading"></span>
+          </article>
+
+          <% for(const result of sessions){ %>
+            <article class="list-row trainer">
+              <span>
+                <%= result.activity.name %>-<%= result.location.name%>
+              </span>
+
+
+              <span>
+                <% let date=new Date(result.session.date )%>
+                <%let formattedDate=date.toLocaleDateString("en-CA"); %>
+                  <%= formattedDate %> at <%= result.session.startTime %>
+              </span>
+
+              <a href="/trainer/<%= result.session.id %>" class="btn-clear">Delete</a>
+            </article>
+            <% } %>
+
+
+        </section>
+
+
+    </main>
+    <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

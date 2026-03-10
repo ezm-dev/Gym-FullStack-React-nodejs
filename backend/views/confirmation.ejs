@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Booking Confirmation</title>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <% if (authenticatedUser){%>
+
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+
+                <% } %>
+
+                    <main>
+                        <h2>Booking Confirmation</h2>
+                        <!-- conditional nav -->
+                        <section class="session">
+                            <article class="card2">
+
+                                <img src="/img/<%= results.activity.name %>.jpg" alt="Gym activity photo">
+                                <h3>Your Booking Details:</h3>
+
+                                <article class="details">
+                                    <p>Location: <%= results.location.name %>
+                                    </p>
+                                    <p>Activity: <%= results.activity.name %>
+                                    </p>
+                                    <p>Date: <%= date %>
+                                    </p>
+                                    <p>Time: <%= results.session.startTime%>
+                                    </p>
+                                    <p>Duration: <%= results.session.duration%>
+                                    </p>
+                                    <p>Trainer: <%= results.user.firstName+" "+results.user.lastName%>  </p>
+                
+                
+                                         <!-- link to back button  to sessions or home-->
+                                            <!-- <a href=" /sessions" class="btn">Back</a>
+                                            <a href="/mybookings" class="btn">Mybookings</a> -->
+                                </article>
+
+                            </article>
+
+                        </section>
+
+                    </main>
+                    <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

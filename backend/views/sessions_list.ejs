@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Gym- Sessions Weekly Calendar</title>
+  <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+  <%- include("partials/header.ejs") %>
+
+    <% if (authenticatedUser){%>
+      <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+        <% } %>
+
+          <main>
+            <section class="sessions_list">
+              <h2>Sessions Calendar</h2>
+
+              <% for (day in sessionsByDay){%>
+                <h3 class="title-border">
+                  <%= day %>
+                </h3>
+
+                <% for( result of sessionsByDay[day]){ %>
+                  <article class="sessions_row">
+                    <strong>
+                      <%= result.activity.name %>
+                    </strong>
+
+                    <form action="/sessions/session" method="post">
+                      <input type="hidden" name="sessionDate" value="<%= result.session.date %>">
+                      <input type="hidden" name="activityName" value="<%= result.activity.name %>">
+                      <input type="submit" value="Select" class="btn">
+                    </form>
+                  </article>
+                  <% } %>
+
+                    <% } %>
+            </section>
+
+          </main>
+          <%- include("partials/footer.ejs") %>
+</body>
+
+</html>

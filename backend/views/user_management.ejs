@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - User Management</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main class="main-crud">
+            <!-- Conditional navigation -->
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <h2>Users CRUD</h2>
+
+                <!-- form Section -->
+                <form action="/users/<%= selectedUser.id%>" method="post" class="form-crud">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" name="firstName" id="first-name" value="<%= selectedUser.firstName  %>">
+
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" name="lastName" id="last-name" value="<%= selectedUser.lastName  %>">
+
+                    <label for="role">Role:</label>
+                    <select name="role" id="role">
+                        <option value="admin" <%=selectedUser.role=="admin" ?"selected":"" %>>Admin</option>
+                        <option value="member" <%=selectedUser.role=="member" ?"selected":"" %>>Member</option>
+                        <option value="trainer" <%=selectedUser.role=="trainer" ?"selected":"" %>>Trainer</option>
+                    </select>
+
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" value="<%= selectedUser.email %>">
+
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" value="<%= selectedUser.password %>">
+
+
+                    <!-- make update and create button conditional -->
+
+                    <section class="btns-section">
+                        <a href="/users" class="btn-clear">Clear</a>
+                        <% if(selectedUser.id==null) {%>
+
+                            <input type="submit" name="action" value="create">
+
+                            <% } else{%>
+                                <input type="submit" name="action" value="update">
+                                <input type="submit" name="action" value="delete">
+                                <% } %>
+
+                                    <!-- Move delete button with update -->
+                    </section>
+
+                </form>
+
+
+                <section class="list">
+                    <article class="list-row heading">
+                        <span class="heading">Name </span>
+                        <span class="heading"> Email </span>
+                        <span class="heading"> Role </span>
+                        <span class="heading"></span>
+                    </article>
+
+                    <% for (const user of users){ %>
+                        <article class="list-row">
+                            <span>
+                                <%= user.firstName %>
+                                    <%= user.lastName %>
+                            </span>
+                            <span>
+                                <%= user.email%>
+                            </span>
+                            <span>
+                                <%= user.role %>
+                            </span>
+                            <a href="/users/<%= user.id %>" class="btn-clear">Edit</a>
+                        </article>
+                        <% } %>
+                </section>
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

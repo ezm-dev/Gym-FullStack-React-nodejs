@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Status</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main class="status">
+
+            <section>
+
+                <h2>
+                    <%= status %>
+                </h2>
+                <article>
+                    <% if(typeof message !=undefined){ %>
+                        <p>
+                            <%= message %>
+                        </p>
+                        <% } %>
+
+
+                </article>
+            </section>
+
+
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

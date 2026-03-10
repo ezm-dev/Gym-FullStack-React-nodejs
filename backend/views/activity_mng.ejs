@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym - Activities Management</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <main class="main-crud">
+            <!-- Conditional navigation -->
+            <%- include("partials/admin_nav.ejs",{ userRole : authenticatedUser.role}) %>
+                <h2>Activities CRUD</h2>
+
+                <!-- form Section -->
+
+                <form action="/activity_mng/<%= selectedActivity.id%>" method="post" class="form-crud">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="<%= selectedActivity.name  %>">
+
+
+                    <label for="description">Description</label>
+                    <input type="text" name="description" id="description" value="<%= selectedActivity.description  %>">
+
+
+                    <!-- make update and create button conditional -->
+
+                    <section class="btns-section">
+                        <a href="/activity_mng" class="btn-clear">Clear</a>
+                        <% if(selectedActivity.id==null) {%>
+
+                            <input type="submit" name="action" value="create">
+
+                            <% } else{%>
+                                <input type="submit" name="action" value="update">
+                                <input type="submit" name="action" value="delete">
+                                <% } %>
+
+
+                                    <!-- Move delete button with update -->
+                    </section>
+
+                </form>
+
+
+                <section class="list">
+
+                    <article class="list-row heading">
+                        <span class="heading">Name </span>
+                        <span class="heading"> Description</span>
+                        <span class="heading"></span>
+                    </article>
+
+                    <% for (const activity of activities){ %>
+
+                        <article class="list-row">
+                            <span>
+                                <%= activity.name %>
+                            </span>
+                            <span>
+                                <%= activity.description %>
+                            </span>
+                            <a href="/activity_mng/<%= activity.id %>" class="btn-clear">Edit</a>
+                        </article>
+                        <% } %>
+
+
+                </section>
+
+
+        </main>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>
