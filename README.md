@@ -1,5 +1,5 @@
 # Full stack Gym project: 
-# Backend(node.js - Express.js)
+# Backend APIs(node.js - Express.js)
 # Frontend(React & Tailwind) : Mobile-first layout by React for gym website with CSS Frameworks Tailwind(Daisy.UI)
 
 # Gym-Frontend Screenhots:
@@ -42,4 +42,4 @@
   [sessions.xml](https://github.com/user-attachments/files/26327773/sessions.xml)
 
 -------------------------------
-# Gym- Backend Screenshots: https://github.com/ezm-dev/Gym-Backend---Node-js
+# Gym- Backend only Screenshots: https://github.com/ezm-dev/Gym-Backend---Node-js
