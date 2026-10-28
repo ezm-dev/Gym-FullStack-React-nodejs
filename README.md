@@ -1,6 +1,13 @@
-# Full stack Gym project: 
-# Backend APIs(node.js - Express.js)
-# Frontend(React & Tailwind) : Mobile-first layout by React for gym website with CSS Frameworks Tailwind(Daisy.UI)
+# Full-Stack Gym Website
+
+A full-stack gym website featuring a **Node.js and Express.js backend** and a **React frontend** styled with Tailwind CSS and DaisyUI. The frontend uses a mobile-first, responsive design to provide a smooth user experience across different devices.
+
+## Tech Stack
+
+- **Frontend:** React, Tailwind CSS, DaisyUI
+- **Backend:** Node.js, Express.js
+- **Design:** Mobile-first, responsive UI
+- **Architecture:** RESTful APIs
 
 # Gym-Frontend Screenhots:
   # Home
