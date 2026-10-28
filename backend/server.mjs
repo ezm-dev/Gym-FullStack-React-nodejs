@@ -20,19 +20,24 @@ import { APIController } from "./controllers/api/APIController.mjs"
 
 
 const app = express()
-const port = 8080
+const port = process.env.PORT || 8080
+
 
 //Enable cross-origin receources sharing (CORS) and preflight Options requests
 app.use(
     cors({
-        origin: true 
-        // origin: "https://connect.tafeqld.edu.au"
+        origin: process.env.FRONTEND_URL || true
+        
     })
 )
 
 
 app.set("view engine", "ejs")
 app.set("views", path.join(import.meta.dirname,"views"))
+
+//Serve static files from public and frontend/dist directories
+app.use(express.static(path.join(import.meta.dirname, "public")))
+app.use(express.static(path.join(import.meta.dirname, "../frontend/dist")))
 
 //order matters ....body parser ...> middleware..> controller
 //Middleware setup
@@ -56,12 +61,13 @@ app.use("/activity_mng", ActivityMngController.routes)
 app.use("/", HomeController.routes)
 app.use("/api",APIController.routes)
 
-app.use(express.static(path.join(import.meta.dirname,"public")))
+
+//Server STATIC files 
 
 
 
 app.get("/", (req,res)=>{
-    //  res.status(301).redirect("/sessions")
+    res.sendFile(path.join(import.meta.dirname, "../frontend/dist/index.html"))
 })
 app.listen(port,()=>{
     console.log("Backend started on http://localhost:"+port)
