@@ -36,7 +36,7 @@ const options = {
 
 const specification = swaggerJSDoc(options) // 1-contains open Api specifications based on options and reading files
 
-console.log(JSON.stringify(specification))
+//console.log(JSON.stringify(specification))
 
 
 
