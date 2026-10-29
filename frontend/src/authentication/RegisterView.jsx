@@ -37,7 +37,7 @@ function RegisterView(){
         }
 
       if (!validator.isStrongPassword(password, { minLength: 8, minLowercase: 1,minUppercase: 1,minSymbols: 1, minNumbers: 1,returnScore: false })) {
-         validationErrors["password"] = "Missing or invalid password"
+         validationErrors["password"] = "Missing or invalid password[minLength:8(Lowercase, Uppercase, Numbers, Symbols)"
       }
         
       setValidationErrors(validationErrors)
