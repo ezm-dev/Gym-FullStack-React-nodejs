@@ -1,5 +1,5 @@
 import mysql from "mysql2/promise"
-import dotenv from "dotenv"
+
 /**
  * Abstract Model for database conntection and query
  */
@@ -13,10 +13,11 @@ export class DatabaseModel {
      */
     static {
         this.connection = mysql.createPool({
-            host: process.env.DB_HOST,  //domain or address of db server (run at the same webserver)
+            host: process.env.DB_HOST,
             user: process.env.DB_USER,
             password: process.env.DB_PASSWORD,
             database: process.env.DB_NAME,
+            port: 3306,
             nestTables: true,
         })
     }
