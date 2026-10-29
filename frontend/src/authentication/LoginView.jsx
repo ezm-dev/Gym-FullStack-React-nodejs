@@ -16,11 +16,11 @@ function LoginView(){
     const validationErrors = {}
     //validation
     if (!validator.isEmail(email)) {
-            validationErrors["email"] = "Missing or invalid email"
+            validationErrors["email"] = "Invalid email"
         }
    
         if (!validator.isStrongPassword(password, { minLength: 8, minLowercase: 1,minUppercase: 1,minSymbols: 1, minNumbers: 1,returnScore: false })) {
-            validationErrors["password"] = "invalid password"
+            validationErrors["password"] = "Invalid strong password"
         }
 
     setValidationErrors(validationErrors)
@@ -61,14 +61,14 @@ function LoginView(){
             className="grow" type="text" />
              {validationErrors["email"]&&<label className="label text-red-500 justify-self-end">{validationErrors["email"]}</label>}
         </label>
-
+       
         <label className="input w-full mb-5">
             <span className="label">Password</span>
             <input
             value ={password}
             onChange={e=> setPassword(e.target.value)}
             className="grow" type="password" />
-            {validationErrors["password"]&&<label className="label text-red-500 justify-self-end">{validationErrors["password"]}<br/>"[minLength:8(Lowercase, Uppercase, Numbers, Symbols)]"</label>}
+            {validationErrors["password"]&&<label className="label text-red-500 justify-self-end">{validationErrors["password"]}</label>}
         </label>   
 
         <button
