@@ -20,7 +20,7 @@ function LoginView(){
         }
    
         if (!validator.isStrongPassword(password, { minLength: 8, minLowercase: 1,minUppercase: 1,minSymbols: 1, minNumbers: 1,returnScore: false })) {
-            validationErrors["password"] = "Missing or invalid password[minLength:8(Lowercase, Uppercase, Numbers, Symbols)"
+            validationErrors["password"] = "invalid password"
         }
 
     setValidationErrors(validationErrors)
@@ -68,7 +68,7 @@ function LoginView(){
             value ={password}
             onChange={e=> setPassword(e.target.value)}
             className="grow" type="password" />
-            {validationErrors["password"]&&<label className="label text-red-500 justify-self-end">{validationErrors["password"]}</label>}
+            {validationErrors["password"]&&<label className="label text-red-500 justify-self-end">{validationErrors["password"]}<br/>"[minLength:8(Lowercase, Uppercase, Numbers, Symbols)]"</label>}
         </label>   
 
         <button
