@@ -107,7 +107,7 @@ export class AuthenticationController {
 
         }
         //{minLength: 8,minLowercase: 1,minUppercase: 1,  minNumbers: 1}
-        if (!validator.isStrongPassword(password, { minLength: 8, minLowercase: 1, minNumbers: 1 })) {
+        if (!validator.isStrongPassword(password, { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 })) {
             //if(!/^[a-zA-Z\-\!@#$%^&*_()]{8,}$/.test(password)){
             res.status(400).render("status.ejs", {
                 status: "Invalid input provided",

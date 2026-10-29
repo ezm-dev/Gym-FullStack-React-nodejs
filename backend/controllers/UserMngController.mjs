@@ -99,11 +99,11 @@ export class UserMngController {
 
         }
         //password
-        if (!validator.isStrongPassword(formData.password, { minLength: 6, minLowercase: 1, minNumbers: 1 })) {
+        if (!validator.isStrongPassword(formData.password, {  minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 })) {
             //console.log(validator.isStrongPassword(formData.password))
             res.status(400).render("status.ejs", {
                 status: "Invalid input provided",
-                message: "please enter a strong password { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1} "
+                message: "please enter a strong password {  minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1} "
             })
             return
 
