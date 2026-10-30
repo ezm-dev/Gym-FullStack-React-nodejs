@@ -72,7 +72,7 @@ export class APIController{
    this.routes.use((err, req, res, next)=>{
     res.status(err.status || 500).json({
        //status: err.status,    //check
-        messsage: err.message,
+        message: err.message,
         errors: err.errors
     })
  })
