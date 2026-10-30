@@ -43,7 +43,7 @@ export class PostUserModel extends DatabaseModel {
             inner join users 
              on posts.user_id = users.id
                 and users.deleted = 0
-                order by posts.date
+                order by posts.date DESC
             `).then(results => results.map(row => this.tableToModel(row)))
     }
 
