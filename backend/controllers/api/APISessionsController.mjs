@@ -4,7 +4,7 @@ import { SessionALTModel } from "../../models/SessionALTModel.mjs"
 import { APIAuthenticationController } from "./APIAuthenticationController.mjs"
 import { ActivityModel } from "../../models/ActivityModel.mjs"
 
-// TEST///////////////////////////////////////////////////
+
 
 
 export class APISessionController{
@@ -13,8 +13,8 @@ export class APISessionController{
     static{
         
 
-      this.routes.get("/",APIAuthenticationController.restrict(["trainer,member"]) ,this.getSessions)
-      this.routes.get("/calendar",APIAuthenticationController.restrict(["member,trainer"]) ,this.getSessionsCalendar) 
+      this.routes.get("/",APIAuthenticationController.restrict(["trainer","member"]) ,this.getSessions)
+      this.routes.get("/calendar",APIAuthenticationController.restrict(["member","trainer"]) ,this.getSessionsCalendar) 
       this.routes.patch("/activities/:id",APIAuthenticationController.restrict(["admin"]),this.updateActivity)
       // this.routes.get("/calendar",this.getSessionsCalendar) 
     }
