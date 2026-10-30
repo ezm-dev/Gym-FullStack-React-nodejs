@@ -94,7 +94,7 @@ function LoginView() {
                 type="button"
                 className="btn btn-sm btn-ghost mt-2"
                 onClick={() => {
-                    setEmail("john@gym.conm")
+                    setEmail("john@gym.com")
                     setPassword("Abcd1234")
                 }}
             >
