@@ -21,8 +21,8 @@ export class SessionController {
     static {
         
 
-        this.routes.get("/", AuthenticationController.restrict(["member"]), this.viewSessionListGroup)
-        this.routes.post("/session", AuthenticationController.restrict(["member"]), this.viewSessionDetails)
+        this.routes.get("/", AuthenticationController.restrict(["member,trainer"]), this.viewSessionListGroup)
+        this.routes.post("/session", AuthenticationController.restrict(["member,trainer"]), this.viewSessionDetails)
 
     }
 
