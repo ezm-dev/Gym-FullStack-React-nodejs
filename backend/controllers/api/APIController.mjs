@@ -8,8 +8,10 @@ import { APIAuthenticationController } from "./APIAuthenticationController.mjs"
 import { APIUsersController } from "./APIUsersController.mjs"
 import { APIPostsController } from "./APIPostsController.mjs"
 import { APIXMLController } from "./APIXMLController.mjs"
+import path from "path"
 
-
+const controllersDir = path.join(import.meta.dirname, "..").replace(/\\/g, "/")
+const componentsFile = path.join(import.meta.dirname, "../../components.yaml").replace(/\\/g, "/")
 
 
 const options = {
@@ -31,7 +33,8 @@ const options = {
             }
         }, 
     },
-    apis: ["./controllers/**/*.{js,mjs,yaml}","./components.yaml"] //where to find apis
+    apis: [`${controllersDir}/**/*.{js,mjs,yaml}`, componentsFile] //where to find apis
+   
 }
 
 const specification = swaggerJSDoc(options) // 1-contains open Api specifications based on options and reading files
