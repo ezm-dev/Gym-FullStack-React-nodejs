@@ -29,10 +29,8 @@ function BookingsListView(){
 
     useEffect(()=>{
     if(activity && date){
-      //fetch all sessions for this activity and date, for all locations
-      //fetchAPI("GET","/sessions/calendar?select_date="+date+"&select_activity="+activity,null,user.authenticationKey)
-      fetchAPI("GET","/sessions")
-      .then(response=>{
+      fetchAPI("GET","/sessions/calendar?select_date="+date+"&select_activity="+activity,null,user.authenticationKey)
+          .then(response=>{
               if(response.status ==200){
                   setSessions(response.body)
                   console.log(response.body)
@@ -59,7 +57,7 @@ function BookingsListView(){
     .then(response => {
       if (response.status == 200) {
         const userBookings = response.body;
-       //console.log(userBookings ) 
+       console.log(userBookings ) 
 
       const alreadyBooked = userBookings.some(result => 
           parseInt(result.session.id) == parseInt(sessionId)

@@ -24,11 +24,8 @@ function SessionsListView(){
         saturdayOfThisWeek.setDate(sundayOfThisWeek.getDate()+6)//+6
         const endDate = toLocaleDateString(saturdayOfThisWeek)
       //  const endDate = saturdayOfThisWeek.toLocaleDateString("en-CA")
- 
-      //get weekly sessions calendar for this week, from Sunday to Saturday, for all activities
-    // fetchAPI("GET", `/sessions/calendar?start_date=${startDate}&end_date=${endDate}`,null,user.authenticationKey)
-    
-       fetchAPI("GET", `/sessions`,null,user.authenticationKey)
+
+        fetchAPI("GET", `/sessions/calendar?start_date=${startDate}&end_date=${endDate}`,null,user.authenticationKey)
             .then(response => {
                 if (response.status === 200) {
                     if (response.body.length > 0) {
