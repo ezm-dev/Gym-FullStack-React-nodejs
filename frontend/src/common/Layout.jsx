@@ -84,13 +84,14 @@ function Layout(){
             </button>
            
             <button
-            onClick={() => window.open("https://tafeqld.edu.au/legal/privacy-policy", "_blank")}
-            className={ window.location.href == "https://tafeqld.edu.au/legal/privacy-policy" ? "dock-active" : ""}>
-            <FcPrivacy className="text-2xl" />
-            <span className="dock-label">Privacy policy</span>
+                onClick={() => window.open("/privacy-policy.html", "_blank", "noopener")} >
+                <FcPrivacy className="text-2xl" />
+                <span className="dock-label">Privacy policy</span>
             </button>
             
         </nav>}
+     
+
      
   
 
