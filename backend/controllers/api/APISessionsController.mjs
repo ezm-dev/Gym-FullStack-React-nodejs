@@ -13,7 +13,7 @@ export class APISessionController{
     static{
         
 
-      this.routes.get("/",APIAuthenticationController.restrict(["trainer","member"]) ,this.getSessions)
+      this.routes.get("/",APIAuthenticationController.restrict(["trainer"]) ,this.getSessions)
       this.routes.get("/calendar",APIAuthenticationController.restrict(["member","trainer"]) ,this.getSessionsCalendar) 
       this.routes.patch("/activities/:id",APIAuthenticationController.restrict(["admin"]),this.updateActivity)
       // this.routes.get("/calendar",this.getSessionsCalendar) 
