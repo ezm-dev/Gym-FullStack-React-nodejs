@@ -13,6 +13,16 @@ const navigate = useNavigate()
       <button className="btn btn-warning  btn-xl self-stretch my-5 shadow-lg" onClick={() => navigate('/login')}>Login</button>
       <button className="btn btn-warning btn-xl self-stretch my-5 shadow-lg"onClick={() => navigate('/register')}>Register</button>
       <button className="btn btn-warning btn-xl self-stretch my-5 shadow-lg" onClick={() => navigate('/posts')}>Blog</button>
+     <div className="self-stretch my-5 p-4 rounded-lg border border-warning bg-base-200 shadow-lg">
+        <h2 className="text-lg font-bold mb-2">Want to try it? login with:</h2>
+        <p>
+          Email: <code>john@gym.com</code>
+        </p>
+        <p>
+          Password: <code>Abcd1234</code>
+        </p>
+      </div>
+     
      </section>
     )
      
