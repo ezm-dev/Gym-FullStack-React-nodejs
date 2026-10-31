@@ -129,21 +129,22 @@ static getBookingsDetailsByEmail(email) {
  * @returns {Array<BookingSessionUserModel>} Bookings 
  */
 static getBookingsDetailsByMemberId(id) {
-    return this.query(`
-           
+    return this.query(`          
+SELECT *
+FROM bookings
+INNER JOIN users AS member
+    ON bookings.user_id = member.id
+INNER JOIN sessions
+    ON bookings.session_id = sessions.id
+INNER JOIN locations
+    ON sessions.location_id = locations.id
+INNER JOIN activities
+    ON sessions.activity_id = activities.id
+INNER JOIN users AS trainer
+    ON sessions.trainer_id = trainer.id
+WHERE member.id = ?
+ORDER BY sessions.date, sessions.start_time;
 
-            select * 
-            from bookings
-            inner join users on
-            bookings.user_id = users.id
-			inner join sessions on
-			bookings.session_id =   sessions.id 
-            inner join locations on 
-            sessions.location_id = locations.id
-            inner join activities on 
-            sessions.activity_id = activities.id
-            where  users.id=?
-            order by sessions.date, sessions.start_time
           
     `, [id]).then(result => result.map(row => this.tableToModel(row))) //users.role="member"
 }
