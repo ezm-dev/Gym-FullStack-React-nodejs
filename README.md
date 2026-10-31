@@ -7,7 +7,7 @@ A full-stack gym website featuring a **Node.js and Express.js backend** and a **
 - **Fitness Sessions** – Browse available weekly classes by day and activity.
 - **Class Bookings** – Book fitness sessions and manage bookings.
 - **My Bookings** – View bookings details for each session.
-- **Blog** – Browse gym posts, posts, or delete your own posts.
+- **Blog** – Browse gym posts, publish posts, or delete your own posts.
 - **Export Bookings** – Export booking information.
 - **REST API Integration** – Connect the frontend to the backend using Node.js and Express.js.
 - **Database Management** – Store and manage users, sessions, trainers, locations, and bookings using MySQL.
