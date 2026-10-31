@@ -41,12 +41,15 @@ A full-stack gym website featuring a **Node.js and Express.js backend** and a **
 
 ---------------------------------
 
-# Gym- Exported XML for user's bookings and sessions(to be integrated with other Apps)
-  # Member Bookings
+## Exported XML (for user's bookings and sessions to be integrated with other Apps)
+  ## Member Bookings
   [bookings.xml](https://github.com/user-attachments/files/26327770/bookings.xml)
-  
-  # Trainer Sessions
-  [sessions.xml](https://github.com/user-attachments/files/26327773/sessions.xml)
+  <img width="431" height="421" alt="bookings" src="https://github.com/user-attachments/assets/8c284d79-91ba-47d3-bf63-64b078450791" />
+
+
+  ## Trainer Sessions
+   [sessions.xml](https://github.com/user-attachments/files/26327773/sessions.xml)
+  <img width="426" height="466" alt="sessions" src="https://github.com/user-attachments/assets/14eb7675-614e-48d4-9203-fc74deab0341" />
 
 -------------------------------
-# Gym- Backend only Screenshots: https://github.com/ezm-dev/Gym-Backend---Node-js
+
