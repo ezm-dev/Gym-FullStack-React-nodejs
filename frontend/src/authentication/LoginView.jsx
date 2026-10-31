@@ -92,7 +92,7 @@ function LoginView() {
             <p>Password: <code>Abcd1234</code></p>
             <button
                 type="button"
-                className="btn btn-sm btn-ghost mt-2 bg-base-200 hover:bg-base-300"
+                className="btn btn-sm btn-ghost mt-2 bg-base-300 hover:bg-base-400"
                 onClick={() => {
                     setEmail("john@gym.com")
                     setPassword("Abcd1234")
