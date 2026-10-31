@@ -1,6 +1,16 @@
 # Full-Stack Gym Website
 
 A full-stack gym website featuring a **Node.js and Express.js backend** and a **React frontend** styled with Tailwind CSS and DaisyUI. The frontend uses a mobile-first, responsive design to provide a smooth user experience across different devices.
+##  Features
+
+- **User Authentication** – Secure registration and login.
+- **Fitness Sessions** – Browse available weekly classes by day and activity.
+- **Class Bookings** – Book fitness sessions and manage bookings.
+- **My Bookings** – View bookings details for each session.
+- **Blog** – Browse gym posts, publish posts, or delete your own posts.
+- **Export Bookings** – Export booking information.
+- **REST API Integration** – Connect the frontend to the backend using Node.js and Express.js.
+- **Database Management** – Store and manage users, sessions, trainers, locations, and bookings using MySQL.
 
 ## Tech Stack
 
