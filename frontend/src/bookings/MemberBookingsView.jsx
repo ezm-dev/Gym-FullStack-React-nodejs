@@ -74,7 +74,7 @@ function MemberBookingsView() {
                 </div>
                 <p className="text-xl font-bold">{b.activity.name}</p>
                 <p><span className="font-semibold">Location: </span>{b.location.name}  </p>
-                <p><span className="font-semibold">Trainer: </span>{b.user?`${b.user.firstName} ${b.user.lastName}`:""} </p>
+                {/* <p><span className="font-semibold">Trainer: </span>{b.user?`${b.user.firstName} ${b.user.lastName}`:""} </p> */}
                 <p><span className="font-semibold">Date: </span>{new Date(b.session.date).toLocaleDateString()} - {b.session.startTime} </p>
             </div>
             </div>
